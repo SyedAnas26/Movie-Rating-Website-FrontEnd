@@ -1,0 +1,101 @@
+
+<!-- Button trigger modal -->
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>
+            S.No
+          </th>
+          <th>
+            <div class="d-flex flex-row">
+              <button type="button" class="btn btn-light"
+              (click)="sortResult('ReleaseDate',true)">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 5a.5.5 0 0 0-1 0v4.793L5.354 7.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 9.793V5z"/>
+              </svg>
+            </button>
+            <button type="button" class="btn btn-light"
+              (click)="sortResult('ReleaseDate',false)">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+              </svg>
+            </button>
+            </div>
+            <br>
+            Release Date
+          </th>
+            <th>
+              <div class="d-flex flex-row">
+                <input [(ngModel)]="MovieTitleFilter" class="form-control"
+                (keyup)="FilterFn()" placeholder="Search Movie">
+
+                <button type="button" class="btn btn-light"
+                (click)="sortResult('MovieTitle',true)">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 5a.5.5 0 0 0-1 0v4.793L5.354 7.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 9.793V5z"/>
+                </svg>
+              </button>
+              <button type="button" class="btn btn-light"
+                (click)="sortResult('MovieTitle',false)">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+                </svg>
+              </button>
+
+              </div>
+              <br>
+              <h5 align="center">Movie</h5></th>
+            <th>
+              <div class="d-flex flex-row">
+                <button type="button" class="btn btn-light"
+                (click)="sortResult('Rating',true)">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 5a.5.5 0 0 0-1 0v4.793L5.354 7.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 9.793V5z"/>
+                </svg>
+              </button>
+              <button type="button" class="btn btn-light"
+                (click)="sortResult('Rating',false)">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+                </svg>
+              </button>
+
+              </div>
+              <br>
+              Rating</th>
+            <th>Vote</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of MovieList;let i=index">
+          <td>{{i+1}}</td>
+            <td class="h6">{{getFormat(dataItem.ReleaseDate)}}</td>
+            <td><img src="http://localhost:8000{{dataItem.MovieImage}}"class="mx-auto d-block" style="width:50%" ><h4 align="center"> {{dataItem.MovieTitle}}</h4></td>
+            <!-- <div *ngFor="let dI of RatingList">
+            <div *ngIf="dI.MovieId==dataItem.MovieId"> -->
+            <td class="h6">{{dataItem.Rating}} / 10</td>
+            <td>
+                <span class="h7">{{dataItem.UpVotes}}</span>
+                <button type="button" class="btn btn-light ml-1 mr-1"
+                data-backdrop="static" data-keyboard="false"
+                (click)="UpVote(dataItem)">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg>
+                </button>
+                <button type="button" class="btn btn-light mr-1 ml-1"
+                (click)="DownVote(dataItem)">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-down-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                </svg>
+                </button>
+                <span class="h7">
+                  {{dataItem.DownVotes}}
+                </span>
+            </td>
+            <!-- </div>
+            </div> -->
+        </tr>
+    </tbody>
+</table>
