@@ -17,14 +17,12 @@ export class ListMoviesComponent implements OnInit {
   MovieTitleFilter = '';
   MovieListWithoutFilter: any = [];
 
-   // MovieRatingList = this.MovieListWithoutFilter.concat(this.RatingList);
 
   ngOnInit(): void {
     this.refreshList();
   }
 
 
-  // tslint:disable-next-line:typedef
   getFormat(date){
     return moment(date).format('LL');
   }

@@ -1,5 +1,3 @@
-
-<!-- Button trigger modal -->
 <br>
 <table class="table table-striped">
     <thead>
@@ -71,9 +69,7 @@
         <tr *ngFor="let dataItem of MovieList;let i=index">
           <td>{{i+1}}</td>
             <td class="h6">{{getFormat(dataItem.ReleaseDate)}}</td>
-            <td><img src="http://localhost:8000{{dataItem.MovieImage}}"class="mx-auto d-block" style="width:50%" ><h4 align="center"> {{dataItem.MovieTitle}}</h4></td>
-            <!-- <div *ngFor="let dI of RatingList">
-            <div *ngIf="dI.MovieId==dataItem.MovieId"> -->
+            <td><img src="http://localhost:8000{{dataItem.MovieImage}}" alt="Movie Poster" class="mx-auto d-block" style="width:50%" ><h4 align="center"> {{dataItem.MovieTitle}}</h4></td>
             <td class="h6">{{dataItem.Rating}} / 10</td>
             <td>
                 <span class="h7">{{dataItem.UpVotes}}</span>
@@ -94,8 +90,6 @@
                   {{dataItem.DownVotes}}
                 </span>
             </td>
-            <!-- </div>
-            </div> -->
         </tr>
     </tbody>
 </table>
